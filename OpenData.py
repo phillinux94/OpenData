@@ -239,7 +239,7 @@ class OpenRevenus:
         return reponse
     
     
-    def dateInformation(self): 
+    def dateJeuDonnees(self): 
         
         # Date information Web Service
         try:
