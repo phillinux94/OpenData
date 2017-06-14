@@ -4,7 +4,7 @@
 from OpenData import OpenRevenus
 
 
-r = OpenRevenus("45155")
+r = OpenRevenus("75105")
 
 print(r.codeGeographique())
 print(r.dataset())
@@ -27,3 +27,5 @@ print(r.tauxPauvretePlus74())
 print(r.tauxPauvreteProprietaire())
 print(r.tauxPauvreteLocataire())
 print(r.tauxPauvreteEnsemble())
+print(r.dateInformation())
+print(r.validiteJeu())
