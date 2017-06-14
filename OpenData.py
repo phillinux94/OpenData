@@ -27,6 +27,8 @@ class OpenRevenus:
             reponse = self.reponseData['parameters']['refine']['codgeo']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""
         
         return reponse
     
@@ -38,6 +40,8 @@ class OpenRevenus:
             reponse = self.reponseData['parameters']['dataset'][0]
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -49,6 +53,9 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['nombre_de_personnes_dans_les_menages_fiscaux']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""
+            
         return reponse
     
     
@@ -59,6 +66,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['mediane_revenu_disponible_par_uc_en_euros']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
         
         return reponse
     
@@ -70,6 +79,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['menages_fiscaux']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -81,6 +92,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['libelle_commune_ou_arm']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -92,6 +105,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['part_pensions_retraites_rentes']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -103,6 +118,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['part_revenus_d_activite']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -114,6 +131,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['part_prestations_sociales_ensemble']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -125,6 +144,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['part_revenus_du_patrimoine']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -136,6 +157,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['part_impots']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -147,6 +170,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['taux_de_pauvrete_moins_de_30_ans']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -158,6 +183,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['taux_de_pauvrete_30_a_39_ans']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -169,6 +196,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['taux_de_pauvrete_40_a_49_ans']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -180,6 +209,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['taux_de_pauvrete_50_a_59_ans']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -191,6 +222,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['taux_de_pauvrete_60_a_74_ans']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -202,6 +235,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['taux_de_pauvrete_75_ans_ou_plus']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -213,6 +248,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['taux_de_pauvrete_proprietaire']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -224,6 +261,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['taux_de_pauvrete_locataire']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -235,6 +274,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['fields']['taux_de_pauvrete_ensemble']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
             
         return reponse
     
@@ -246,6 +287,8 @@ class OpenRevenus:
             reponse = self.reponseData['records'][0]['record_timestamp']
         except IndexError:
             reponse = ""
+        except KeyError:
+            reponse = ""        
         
         return reponse
     
