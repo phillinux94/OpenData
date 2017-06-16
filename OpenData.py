@@ -330,8 +330,8 @@ class OpenCodePostal:
                 
                 codeInsee = reponseData["records"][x]["fields"]["insee_com"]
                 nomCommune = reponseData["records"][x]["fields"]["nom_comm"]
-                latitude = reponseData["records"][x]["geometry"]["coordinates"][0]
-                longitude = reponseData["records"][x]["geometry"]["coordinates"][1]
+                latitude = reponseData["records"][x]["geometry"]["coordinates"][1]
+                longitude = reponseData["records"][x]["geometry"]["coordinates"][0]
                 
                 self.listeCodesInsee.append(codeInsee)
                 self.listeNomCommune.append(nomCommune)
