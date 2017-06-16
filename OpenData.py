@@ -375,7 +375,7 @@ class OpenCodePostal:
         return self.listeLongitude
     
 
-
+# Classe permettant la restitution des données du recensement 2011
 class OpenRecensement:
     
     def __init__(self, codeInsee):
