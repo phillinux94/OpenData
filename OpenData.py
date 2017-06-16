@@ -4,7 +4,7 @@
 import requests
 import json
 
-
+# Classe permettant la restitution des données INSEE revenus
 class OpenRevenus:
     
     def __init__(self, codeInsee):
@@ -301,3 +301,72 @@ class OpenRevenus:
             reponse = False
         
         return reponse
+
+
+
+# Classe permettant la correspondance entre le code postal et le code INSEE
+class OpenCodePostal:
+    
+    def __init__(self, codePostal):
+        
+        # # Constitution URL Web Service Open Data Soft
+        urlCodePostal = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=correspondance-code-insee-code-postal&facet=insee_com&facet=nom_dept&facet=nom_region&facet=statut&facet=postal_code&refine.postal_code="
+        urlCodePostal = urlCodePostal + codePostal
+        
+        # Soumission requête HTTP
+        reponse = requests.get(urlCodePostal)
+    
+        # Parsing de la réponse JSON
+        reponseData = json.loads(reponse.text)
+        
+        self.listeCodesInsee = []
+        self.listeNomCommune = []
+        self.listeLatitude = []
+        self.listeLongitude = []
+        
+        try:
+            x = 0
+            for item in reponseData["records"]:
+                
+                codeInsee = reponseData["records"][x]["fields"]["insee_com"]
+                nomCommune = reponseData["records"][x]["fields"]["nom_comm"]
+                latitude = reponseData["records"][x]["geometry"]["coordinates"][0]
+                longitude = reponseData["records"][x]["geometry"]["coordinates"][1]
+                
+                self.listeCodesInsee.append(codeInsee)
+                self.listeNomCommune.append(nomCommune)
+                self.listeLatitude.append(latitude)
+                self.listeLongitude.append(longitude)
+                
+                x = x + 1
+                
+        except IndexError:
+            self.listeCodesInsee = []
+            self.listeNomCommune = []
+            self.listeLatitude = []
+            self.listeLongitude = []
+            
+        except KeyError:
+            self.listeCodesInsee = []
+            self.listeNomCommune = []
+            self.listeLatitude = []
+            self.listeLongitude = []
+        
+    
+    def listeInsee(self):
+        
+        return self.listeCodesInsee
+    
+    def listeCommunes(self):
+        
+        return self.listeNomCommune
+    
+    def listeLatitudes(self):
+        
+        return self.listeLatitude
+    
+    def listeLongitudes(self):
+        
+        return self.listeLongitude
+    
+    
