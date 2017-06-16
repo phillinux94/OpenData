@@ -304,12 +304,13 @@ class OpenRevenus:
 
 
 
+
 # Classe permettant la correspondance entre le code postal et le code INSEE
 class OpenCodePostal:
     
     def __init__(self, codePostal):
         
-        # # Constitution URL Web Service Open Data Soft
+        # Constitution URL Web Service Open Data Soft
         urlCodePostal = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=correspondance-code-insee-code-postal&facet=insee_com&facet=nom_dept&facet=nom_region&facet=statut&facet=postal_code&refine.postal_code="
         urlCodePostal = urlCodePostal + codePostal
         
@@ -355,18 +356,193 @@ class OpenCodePostal:
     
     def listeInsee(self):
         
+        # Liste des codes INSEE rattachés au code postal
         return self.listeCodesInsee
     
     def listeCommunes(self):
         
+        # Liste des communes ratachées au code postal
         return self.listeNomCommune
     
     def listeLatitudes(self):
         
+        # Liste des latitudes des communes rattachées au code postal
         return self.listeLatitude
     
     def listeLongitudes(self):
         
+        # Liste des longitudes des communes rattachées au code postal
         return self.listeLongitude
     
+
+
+class OpenRecensement:
     
+    def __init__(self, codeInsee):
+        
+        # Constitution URL Web Service Open Data Soft
+        urlRecensement = "https://data.opendatasoft.com/api/records/1.0/search/?dataset=metropole-densites-de-population-par-commune%40public&facet=insee_com&refine.insee_com="
+        urlRecensement = urlRecensement + codeInsee
+        
+        # Soumission requête HTTP
+        reponse = requests.get(urlRecensement)
+    
+        # Parsing de la réponse JSON
+        self.reponseData = json.loads(reponse.text)
+        
+        
+        
+        
+    def codeInsee(self):
+        
+        # Code INSEE de la commune
+        try:
+            
+            reponse = self.reponseData["records"][0]["fields"]["insee_com"]
+            
+        except IndexError:
+            
+            reponse = ""
+            
+        except KeyError:
+            
+            reponse = ""
+            
+        return reponse
+    
+    
+    def validiteJeu(self):
+        
+        # Jeu de données valide
+        if len(self.reponseData['records']) > 0:
+            reponse = True
+        else:
+            reponse = False
+        
+        return reponse
+    
+    
+    def nomCommune(self):
+        
+        # Nom de la commune
+        try:
+            
+            reponse = self.reponseData["records"][0]["fields"]["nom_comm"]
+            
+        except IndexError:
+            
+            reponse = ""
+            
+        except KeyError:
+            
+            reponse = ""
+            
+        return reponse
+    
+    
+    def recensement00à14(self):
+        
+        # Recensement 2011 tranche 0 à 14 ans
+        try:
+            
+            reponse = self.reponseData["records"][0]["fields"]["p11_0014"]
+            
+        except IndexError:
+            
+            reponse = ""
+            
+        except KeyError:
+            
+            reponse = ""
+            
+        return reponse   
+    
+    
+    def recensement15à29(self):
+        
+        # Recensement 2011 tranche 15 à 29 ans
+        try:
+            
+            reponse = self.reponseData["records"][0]["fields"]["p11_1529"]
+            
+        except IndexError:
+            
+            reponse = ""
+            
+        except KeyError:
+            
+            reponse = ""
+            
+        return reponse   
+    
+    
+    def recensement30à44(self):
+        
+        # Recensement 2011 tranche 30 à 44 ans
+        try:
+            
+            reponse = self.reponseData["records"][0]["fields"]["p11_3044"]
+            
+        except IndexError:
+            
+            reponse = ""
+            
+        except KeyError:
+            
+            reponse = ""
+            
+        return reponse
+    
+    
+    def recensement45à59(self):
+        
+        # Recensement 2011 tranche 45 à 59 ans
+        try:
+            
+            reponse = self.reponseData["records"][0]["fields"]["p11_4559"]
+            
+        except IndexError:
+            
+            reponse = ""
+            
+        except KeyError:
+            
+            reponse = ""
+            
+        return reponse
+    
+    
+    def recensement60à74(self):
+        
+        # Recensement 2011 tranche 60 à 74 ans
+        try:
+            
+            reponse = self.reponseData["records"][0]["fields"]["p11_6074"]
+            
+        except IndexError:
+            
+            reponse = ""
+            
+        except KeyError:
+            
+            reponse = ""
+            
+        return reponse
+    
+    
+    def recensement75(self):
+        
+        # Recensement 2011 tranche 75 ans et plus
+        try:
+            
+            reponse = self.reponseData["records"][0]["fields"]["p11_75p"]
+
+        except IndexError:
+            
+            reponse = ""
+            
+        except KeyError:
+            
+            reponse = ""
+            
+        return reponse
