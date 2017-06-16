@@ -1,31 +1,14 @@
 #!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
-from OpenData import OpenRevenus
+from OpenData import OpenCodePostal
+
+# Instanciation
+r = OpenCodePostal("75009")
 
 
-r = OpenRevenus("75105")
 
-print(r.codeGeographique())
-print(r.dataset())
-print(r.nombrePersonneMenagesFiscaux())
-print(r.revenuMedian())
-print(r.nombreMenagesFiscaux())
-print(r.nomCommune())
-
-print(r.partRetraites())
-print(r.partRevenuActivite())
-print(r.partPrestationsSociales())
-print(r.partRevenusPatrimoine())
-print(r.partImpots())
-print(r.tauxPauvreteMoins30ans())
-print(r.tauxPauvrete30à39())
-print(r.tauxPauvrete40à49())
-print(r.tauxPauvrete50à59())
-print(r.tauxPauvrete60à74())
-print(r.tauxPauvretePlus74())
-print(r.tauxPauvreteProprietaire())
-print(r.tauxPauvreteLocataire())
-print(r.tauxPauvreteEnsemble())
-print(r.dateJeuDonnees())
-print(r.validiteJeu())
+print(r.listeInsee())
+print(r.listeCommunes())
+print(r.listeLatitudes())
+print(r.listeLongitudes())
