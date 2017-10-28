@@ -44,8 +44,7 @@ class OpenRevenus:
             reponse = ""        
             
         return reponse
-    
-    
+
     def nombrePersonneMenagesFiscaux(self):
         
         # Nombre de personnes dans les ménages fiscaux
