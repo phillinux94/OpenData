@@ -5,12 +5,16 @@ import requests
 import json
 
 # Classe permettant la restitution des données INSEE revenus
+
+
 class OpenRevenus:
     
     def __init__(self, codeInsee):
         
         # Constitution URL Web Service Open Data Soft
-        urlRevenus = "https://data.opendatasoft.com/api/records/1.0/search/?dataset=revenu-pauvrete-menage-2012%40public&facet=codgeo&facet=libelle_commune_ou_arm&refine.codgeo="
+        urlRevenus = "https://data.opendatasoft.com/api/records/1.0/search/?dataset=" \
+                     "revenu-pauvrete-menage-2012%40public&facet=codgeo&facet=" \
+                     "libelle_commune_ou_arm&refine.codgeo="
         urlRevenus = urlRevenus + codeInsee
         
         # Soumission requête HTTP
@@ -18,8 +22,8 @@ class OpenRevenus:
         
         # Parsing de la réponse JSON
         self.reponseData = json.loads(reponse.text)
-        
-        
+
+
     def codeGeographique(self): 
         
         # Code géographique (code INSEE)
